@@ -32,6 +32,7 @@ html, body {
 	font-size: 28px;
 	line-height: 1;
 	background-color: #7DB9B6;
+	overflow-y: overlay;
 }
 
 input, button, textarea {
@@ -76,7 +77,7 @@ p {
 
 .container {
 	max-width: 900px;
-	padding: 20px;
+	padding: 20px 0;
 	margin: 0 auto;
 }
 
@@ -90,8 +91,7 @@ p {
 .accordion {
 	padding: 20px;
 	margin: 0 auto;
-	/* max-width: 900px; */
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
 	border-radius: 5px;
 	overflow: hidden;
 	background-color: #4D455D;
@@ -104,7 +104,6 @@ p {
 .accordion:hover .accordion__label:after{
 	background-image: url('data:image/svg+xml;utf8,<svg width="100" height="50" xmlns="http://www.w3.org/2000/svg"><polygon points="0,0 100,0 50,50" style="fill:%23FFFFFF99;" /></svg>');
 }
-
 
 .accordion__label {
 	padding: 14px 20px;
@@ -131,20 +130,17 @@ p {
 	right: 20px;
 	width: 12px;
 	height: 6px;
-	/* background-image: url('data:image/svg+xml;utf8,<svg width="100" height="50" xmlns="http://www.w3.org/2000/svg"><polygon points="0,0 100,0 50,50" style="fill:%23FFFFFF99;" /></svg>'); */
 	background-size: contain;
 	transition: transform 0.4s;
 }
 
 .accordion__content {
-	display: none;
+	max-height: 0;
 	margin: 0 auto;
-	padding: 14px 20px;
-	/* max-width: 50%; */
 	height: auto;
-	/* background-color: #fff; */
-	/* transition: transform 0.4s; */
-	transition: all 0.35s;
+	transition: all 0.4s;
+	overflow: hidden;
+	cursor: pointer;
 }
 
 .accordion__img{
@@ -160,7 +156,7 @@ p {
 .accordion__input:checked ~ .accordion__content,
 .accordion__input:hover ~ .accordion__content,
 .accordion__content:hover {
-	display: block;
+	max-height: 100vh;
 }
 
 .accordion__input:checked ~ .accordion__label::after,
