@@ -1,0 +1,166 @@
+html {
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+
+*, *::before, *::after {
+	box-sizing: inherit;
+}
+
+:focus, :active {
+	outline: none;
+}
+
+a:focus, a:active {
+	outline: none;
+}
+
+header, footer, nav, aside {
+	display: block;
+}
+
+html, body {
+	height: 100%;
+	width: 100%;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 28px;
+	line-height: 1;
+	background-color: #7DB9B6;
+	overflow-y: overlay;
+}
+
+input, button, textarea {
+	font-family: inherit;
+}
+
+input::-ms-clear {
+	display: none;
+}
+
+button {
+	cursor: pointer;
+}
+
+button::-moz-focus-inner {
+	padding: 0;
+	border: 0;
+}
+
+a, a:visited {
+	text-decoration: none;
+	color: inherit;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+img {
+	vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-size: inherit;
+	font-weight: 700;
+}
+
+p {
+	width: auto;
+	overflow-wrap: break-word;
+}
+
+.container {
+	max-width: 900px;
+	padding: 20px 0;
+	margin: 0 auto;
+}
+
+.header__title {
+	font-size: 42px;
+	font-weight: 900;
+	color: #e1a1aa;
+	margin-bottom: 20px;
+}
+
+.accordion {
+	padding: 20px;
+	margin: 0 auto;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+	border-radius: 5px;
+	overflow: hidden;
+	background-color: #4D455D;
+}
+
+.accordion:hover .accordion__label{
+	color: #F5E9CF;
+}
+
+.accordion:hover .accordion__label:after{
+	background-image: url('data:image/svg+xml;utf8,<svg width="100" height="50" xmlns="http://www.w3.org/2000/svg"><polygon points="0,0 100,0 50,50" style="fill:%23FFFFFF99;" /></svg>');
+}
+
+.accordion__label {
+	padding: 14px 20px;
+}
+
+.accordion__label {
+	display: block;
+	color: #E96479;
+	font-weight: 700;
+	cursor: pointer;
+	position: relative;
+	transition: background 0.9s;
+}
+
+.accordion__label:hover {
+	background: rgba(0, 0, 0, 0.3);
+}
+
+.accordion__label::after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	right: 20px;
+	width: 12px;
+	height: 6px;
+	background-size: contain;
+	transition: transform 0.4s;
+}
+
+.accordion__content {
+	max-height: 0;
+	margin: 0 auto;
+	height: auto;
+	transition: all 0.4s;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.accordion__img{
+	display: block;
+	margin: 0 auto;
+	width: 50%;
+}
+
+.accordion__input {
+	display: none;
+}
+
+.accordion__input:checked ~ .accordion__content,
+.accordion__input:hover ~ .accordion__content,
+.accordion__content:hover {
+	max-height: 100vh;
+}
+
+.accordion__input:checked ~ .accordion__label::after,
+/* .accordion__content:hover .accordion__label::after, */
+.accordion__input:hover ~ .accordion__label::after {
+	transform: translateY(-50%) rotate(0.5turn);
+}
